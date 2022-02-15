@@ -20,6 +20,7 @@ const calculateResult = (num1, num2, operation) => {
 const reducer = (state, action) => {
     switch(action.type) {
         case(ADD_ONE):
+        console.log('reducer')
             return({
                 ...state,
                 total: state.total + 1

@@ -4,6 +4,7 @@ export const APPLY_NUMBER = "APPLY_NUMBER";
 export const CHANGE_OPERATION = "CHANGE_OPERATION";
 
 export const addOne = () => {
+    console.log('action')
     return({type:ADD_ONE});
 }
 
