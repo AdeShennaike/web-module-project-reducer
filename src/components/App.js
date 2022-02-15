@@ -1,5 +1,5 @@
 import React, {useReducer} from 'react';
-import { addOne, changeOperation } from '../actions';
+import { addOne, changeOperation, clearTotal } from '../actions';
 import './App.css';
 
 import TotalDisplay from './TotalDisplay';
@@ -10,14 +10,19 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleAdd = () => {
-    console.log('hi')
     dispatch(addOne())
   }
-
+  
   const handleOperation = (e) => {
     const {value} = e.target 
     dispatch(changeOperation(value))
   }
+  
+  const handleClear = () => {
+    console.log('hi')
+    dispatch(clearTotal())
+  }
+
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -65,7 +70,7 @@ function App() {
             </div>
 
             <div className="row ce_button">
-              <CalcButton value={"CE"}/>
+              <CalcButton onClick = {handleClear} value={"CE"}/>
             </div>
 
           </form>
