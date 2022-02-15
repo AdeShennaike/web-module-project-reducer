@@ -1,5 +1,5 @@
 import React, {useReducer} from 'react';
-import { addOne } from '../actions';
+import { addOne, changeOperation } from '../actions';
 import './App.css';
 
 import TotalDisplay from './TotalDisplay';
@@ -14,6 +14,10 @@ function App() {
     dispatch(addOne())
   }
 
+  const handleOperation = (e) => {
+    const {value} = e.target 
+    dispatch(changeOperation(value))
+  }
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -55,9 +59,9 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={"+"}/>
-              <CalcButton value={"*"}/>
-              <CalcButton value={"-"}/>
+              <CalcButton onClick = {handleOperation} value={"+"}/>
+              <CalcButton onClick = {handleOperation} value={"*"}/>
+              <CalcButton onClick = {handleOperation} value={"-"}/>
             </div>
 
             <div className="row ce_button">
